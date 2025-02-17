@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --header-height: 80px;
+  --footer-height: 60px;
+  --main-bg: #ffffff;
+  --header-bg: #1f49c4; 
+  --footer-bg: #f3f3f3;
+  --text-color: #333;
+  --cta-bg: #1f49c4;
+  --cta-color: #ffffff;
+  --max-width-desktop: 800px; 
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: grid;
+  grid-template-rows: var(--header-height) 1fr var(--footer-height);
+  min-height: 100vh;
+  background-color: #fafafa;
+  color: var(--text-color);
+}
+
+header {
+  grid-row: 1 / 2;
+  background-color: var(--header-bg);
+}
+.header-inner {
+  height: 100%;
+  max-width: var(--max-width-desktop);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.header-inner h1 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+footer {
+  grid-row: 3 / 4;
+  background-color: var(--footer-bg);
+  /* Аналогично, если нужен "липкий" футер:
+     position: sticky; bottom: 0; z-index: 10; */
+}
+.footer-inner {
+  height: 100%;
+  max-width: var(--max-width-desktop);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+.social-links a {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #333;
+}
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+main {
+  grid-row: 2 / 3;
+  background-color: var(--main-bg);
+  max-width: var(--max-width-desktop);
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+.hero h2 {
+  font-size: 1.8rem;
+  color: #fff;
+  background-color: #2b2b2b; /* Подложка темнее, если хотите как в макете */
+  padding: 0.5rem 1rem;
+}
+.hero-image {
+  max-width: 100%;
+  height: auto;
+}
+.fact {
+  font-weight: bold;
+}
+.hero-description {
+  font-style: italic;
+}
+.cta-button {
+  background-color: var(--cta-bg);
+  color: var(--cta-color);
+  padding: 0.7rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 4px;
+}
+.cta-button:hover {
+  background-color: #ffdd33;
+}
+
+.articles {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.article-item {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.article-item img {
+  width: 150px;
+  height: auto;
+  border-radius: 4px;
+}
+.article-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.article-content h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+.article-content p {
+  margin-bottom: 0.5rem;
+}
+.article-content a {
+  color: #1f49c4;
+  text-decoration: none;
+  font-weight: bold;
+}
+.article-content a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 60px;
+    --footer-height: 60px;
+  }
+  .hero h2 {
+    font-size: 1.4rem;
+  }
+  .article-item {
+    flex-direction: column;
+    align-items: center;
+  }
+  .article-item img {
+    width: 100%;
+    max-width: 300px;
+  }
+  .article-content {
+    align-items: center;
+    text-align: center;
+  }
+}
